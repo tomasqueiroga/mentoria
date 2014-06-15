@@ -1,9 +1,14 @@
 package br.com.controleprocessos.business.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 
+import org.apache.commons.lang3.StringUtils;
+
 @Entity
-public class User extends SuperEntity {
+public class UserCP extends SuperEntity {
 
 	private String name;
 	private String login;
@@ -40,6 +45,21 @@ public class User extends SuperEntity {
 
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
+	}
+
+	@Override
+	public void validate() throws ValidationException {
+		List<String> erros = new ArrayList<String>();
+
+		if (StringUtils.isBlank(getName()))
+			erros.add("name-required");
+		if (StringUtils.isBlank(login))
+			erros.add("login-required");
+		if (StringUtils.isBlank(password))
+			erros.add("password-required");
+
+		if (!erros.isEmpty())
+			throw new ValidationException(erros);
 	}
 
 }

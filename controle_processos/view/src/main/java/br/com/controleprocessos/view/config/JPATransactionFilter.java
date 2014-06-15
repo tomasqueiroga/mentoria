@@ -16,6 +16,8 @@ import org.slf4j.Logger;
 
 import br.com.controleprocessos.business.config.persist.EntityManagerFactoryWrapper;
 import br.com.controleprocessos.business.config.persist.EntityManagerUtil;
+import br.com.controleprocessos.business.domain.ValidationException;
+import br.com.controleprocessos.view.utils.GsonUtils;
 
 public class JPATransactionFilter implements javax.servlet.Filter {
 
@@ -56,8 +58,14 @@ public class JPATransactionFilter implements javax.servlet.Filter {
 	}
 
 	private void trataExcecao(Exception e, HttpServletResponse resp, EntityTransaction entityTransaction) throws IOException {
-		e.printStackTrace();
-		resp.setStatus(HttpStatus.SC_INTERNAL_SERVER_ERROR);
+		if (e.getCause() instanceof ValidationException) {
+			resp.setStatus(HttpStatus.SC_BAD_REQUEST);
+			resp.getWriter().print(new GsonUtils().messagesToJson(((ValidationException) e.getCause()).getMessages()));
+		} else {
+			e.printStackTrace();
+			resp.setStatus(HttpStatus.SC_INTERNAL_SERVER_ERROR);
+		}
+
 		try {
 			entityTransaction.rollback();
 		} catch (Exception ex) {

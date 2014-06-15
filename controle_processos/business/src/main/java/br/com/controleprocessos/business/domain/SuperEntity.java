@@ -1,12 +1,15 @@
 package br.com.controleprocessos.business.domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class SuperEntity implements Comparable<SuperEntity> {
+public abstract class SuperEntity implements Comparable<SuperEntity> {
 
 	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	public Long getId() {
@@ -16,6 +19,8 @@ public class SuperEntity implements Comparable<SuperEntity> {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public abstract void validate() throws ValidationException;
 
 	@Override
 	public int hashCode() {
