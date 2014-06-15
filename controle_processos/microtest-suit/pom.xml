@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+	http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.com.controle_processos</groupId>
+		<artifactId>controle_processos</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<properties>
+		<maven.test.skip.exec>false</maven.test.skip.exec>
+	</properties>
+
+	<groupId>br.com.controle_processos</groupId>
+	<artifactId>microtest-suit</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>Controle Processos - Suite de Microtestes</name>
+	
+	<dependencies>
+		<dependency>
+			<groupId>br.com.controle_processos</groupId>
+			<artifactId>business</artifactId>
+			<version>${project.version}</version>
+			<type>jar</type>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+
