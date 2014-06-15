@@ -5,6 +5,11 @@
 
 	<display-name>Controle-Processos</display-name>
 
+	<context-param>
+		<param-name>resteasy.servlet.mapping.prefix</param-name>
+		<param-value>/s</param-value>
+	</context-param>
+
 	<listener>
 		<listener-class>br.com.controleprocessos.view.config.InitJPAContextListener</listener-class>
 	</listener>
@@ -27,10 +32,6 @@
 		<url-pattern>/s/*</url-pattern>
 	</filter-mapping>
 
-	<context-param>
-		<param-name>resteasy.servlet.mapping.prefix</param-name>
-		<param-value>/s</param-value>
-	</context-param>
 	<servlet>
 		<servlet-name>Resteasy</servlet-name>
 		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
