@@ -1,4 +1,4 @@
-package br.com.controleprocessos.domain;
+package br.com.controleprocessos.business.domain;
 
 import javax.persistence.Entity;
 
