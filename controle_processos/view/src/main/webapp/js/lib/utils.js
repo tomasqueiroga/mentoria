@@ -1,0 +1,6 @@
+(function($) {
+
+	utils = {};
+
+})(window.jQuery);
+
