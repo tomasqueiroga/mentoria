@@ -1,0 +1,46 @@
+extends layout
+
+block content
+	div.row
+		label.col-md-8 Nossos lanches
+		div.col-md-4.margin-bottom.actions-buttons
+			a(href="/novo-lanche")#novo.btn.btn-success.margin-left Novo lanche
+			a(href="/")#voltar.btn.btn-success Voltar
+	div.row
+		div.table-responsive.col-md-12
+			table.table.table-striped
+				thead.well
+					tr
+						th Nome
+						th Preço
+						th Ingredientes
+						th Imagem
+						th Ações
+				tbody
+				each lanche, i in lanches
+					tr
+						td= lanche.nome
+						td= lanche.preco
+						td= lanche.ingredientes
+						td
+							img(src=lanche.imagem).small
+						td
+							a(href='/lanches/editar-lanche/' + lanche._id).glyphicon.glyphicon-pencil.margin-left-s
+							a(href='/lanches/excluir/' + lanche._id).glyphicon.glyphicon-remove.margin-left-s
+	script.
+		$('a[href^="/lanches/excluir"]').click(function(e) {
+			e.preventDefault();
+		
+			$.ajax({
+				type: 'DELETE',
+				url: $(this).attr('href'),
+				success : function(response) {
+					if (response.msg !== '')
+						alert('Error: ' + response.msg);
+
+					window.location = '/lanches';
+				}
+			});
+
+			return false;
+		});

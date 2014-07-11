@@ -1,0 +1,4 @@
+use hamburgueria
+db.lanche.remove();
+db.lanche.insert({"nome" : "Picanha", "preco" : 12.0, "ingredientes" : "Pão de hamburguer, hamburguer de picanha 200g, queijo prato, alface, tomate, cebola, molho da casa", "imagem" : "http://2.bp.blogspot.com/-UwbAj0FJeRw/UBGSS3_PGlI/AAAAAAAANU4/mEJJuI5n6S0/s1600/BK+Picanha.jpg"});
+db.lanche.insert({"nome" : "Double picanha bacon", "preco" : 17.0, "ingredientes" : "Pão de hamburguer, dois hamburgueres de picanha 200g, bacon em tiras, duas fatias de queijo prato, alface, tomate, cebola roxa, molho da casa", "imagem" : "http://www.americanprime.com.br/resize.php?arquivo=uploads/2607201306253390774139.jpg"});
