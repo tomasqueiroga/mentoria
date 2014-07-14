@@ -1,0 +1,32 @@
+extends layout
+
+block content
+	h1 Cadastro de lanche
+	form(rel=lanche._id || '')
+		input(type='text', placeholder='nome', name='nome', value=lanche.nome || '')
+		input(type='text', placeholder='preco', name='preco', value=lanche.preco || '')
+		input(type='text', placeholder='ingredientes', name='ingredientes', value=lanche.ingredientes || '')
+		input(type='text', placeholder='URL imagem', name='imagem', value=lanche.imagem || '')
+		div.margin-top
+		button.salvar.btn.btn-success.margin-right Salvar
+		a(href='/lanches')#voltar.btn.btn-success Voltar
+	script.
+		$('button.salvar').click(function(e) {
+			e.preventDefault();
+
+			$.ajax({
+				type: $('form').attr('rel') ? 'PUT' : 'POST',
+				url: '/s/lanches/' + ($('form').attr('rel') || ''),
+				data : {
+					nome : $('[name="nome"]').val(),
+					preco : $('[name="preco"]').val(),
+					ingredientes : $('[name="ingredientes"]').val(),
+					imagem : $('[name="imagem"]').val()
+				},
+				success : function(response) {
+					window.location = '/lanches';
+				}
+			});
+
+			return false;
+		});

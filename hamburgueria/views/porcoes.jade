@@ -2,9 +2,9 @@ extends layout
 
 block content
 	div.row
-		label.col-md-8 Nossos lanches
+		label.col-md-8 Nossas porções
 		div.col-md-4.margin-bottom.actions-buttons
-			a(href='/lanches/novo-lanche')#novo.btn.btn-success.margin-left Novo lanche
+			a(href='/porcoes/nova-porcao')#novo.btn.btn-success.margin-left Nova porção
 			a(href='/')#voltar.btn.btn-success Voltar
 	div.row
 		div.table-responsive.col-md-12
@@ -13,32 +13,30 @@ block content
 					tr
 						th Nome
 						th Preço
-						th Ingredientes
 						th Imagem
 						th Ações
 				tbody
-				each lanche, i in lanches
+				each porcao, i in porcoes
 					tr
-						td= lanche.nome
-						td= lanche.preco
-						td= lanche.ingredientes
+						td= porcao.nome
+						td= porcao.preco
 						td
-							img(src=lanche.imagem).small
+							img(src=porcao.imagem).small
 						td
-							a(href='/lanches/editar-lanche/' + lanche._id).glyphicon.glyphicon-pencil.margin-left-s
-							a(href='', rel=lanche._id, type='DELETE').glyphicon.glyphicon-remove.margin-left-s
+							a(href='/porcoes/editar-porcao/' + porcao._id).glyphicon.glyphicon-pencil.margin-left-s
+							a(href='', rel=porcao._id, type='DELETE').glyphicon.glyphicon-remove.margin-left-s
 	script.
 		$('a[type="DELETE"]').click(function(e) {
 			e.preventDefault();
 		
 			$.ajax({
 				type: 'DELETE',
-				url: '/s/lanches/' + $(this).attr('rel'),
+				url: '/s/porcoes/' + $(this).attr('rel'),
 				success : function(response) {
 					if (response.msg !== '')
 						alert('Error: ' + response.msg);
 
-					window.location = '/lanches';
+					window.location = '/porcoes';
 				}
 			});
 

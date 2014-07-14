@@ -1,0 +1,30 @@
+extends layout
+
+block content
+	h1 Cadastro de porção
+	form(rel=porcao._id || '')
+		input(type='text', placeholder='nome', name='nome', value=porcao.nome || '')
+		input(type='text', placeholder='preco', name='preco', value=porcao.preco || '')
+		input(type='text', placeholder='URL imagem', name='imagem', value=porcao.imagem || '')
+		div.margin-top
+		button.salvar.btn.btn-success.margin-right Salvar
+		a(href='/porcoes')#voltar.btn.btn-success Voltar
+	script.
+		$('button.salvar').click(function(e) {
+			e.preventDefault();
+
+			$.ajax({
+				type: $('form').attr('rel') ? 'PUT' : 'POST',
+				url: '/s/porcoes/' + ($('form').attr('rel') || ''),
+				data : {
+					nome : $('[name="nome"]').val(),
+					preco : $('[name="preco"]').val(),
+					imagem : $('[name="imagem"]').val()
+				},
+				success : function(response) {
+					window.location = '/porcoes';
+				}
+			});
+
+			return false;
+		});

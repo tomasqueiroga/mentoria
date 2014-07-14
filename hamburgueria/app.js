@@ -7,8 +7,11 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var lanches = require('./routes/lanches');
+var lanchesService = require('./routes/lanchesService');
+var porcoes = require('./routes/porcoes');
+var porcoesService = require('./routes/porcoesService');
 var mongo = require('mongoskin');
-var db = mongo.db("mongodb://localhost:27017/hamburgueria", {native_parser:true});
+var db = mongo.db('mongodb://localhost:27017/hamburgueria', {native_parser:true});
 
 var app = express();
 
@@ -28,6 +31,9 @@ app.use(function(req, res, next) {
 });
 app.use('/', routes);
 app.use('/lanches', lanches);
+app.use('/s/lanches', lanchesService);
+app.use('/porcoes', porcoes);
+app.use('/s/porcoes', porcoesService);
 
 // / catch 404 and forward to error handler
 app.use(function(req, res, next) {
