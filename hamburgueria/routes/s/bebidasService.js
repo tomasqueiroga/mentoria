@@ -3,19 +3,19 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
 	req.db.collection('bebida').find().toArray(function(err, bebidas) {
-		res.json('bebidas', bebidas);
+		res.json(200, bebidas);
 	});
 });
 
 router.get('/:id', function(req, res) {
 	req.db.collection('bebida').findById(req.params.id, function(err, bebida) {
-		res.json('bebida', bebida);
+		res.json(200, bebida);
 	});
 });
 
 router.delete('/:id', function(req, res) {
 	req.db.collection('bebida').removeById(req.params.id, function(err, result) {
-		res.send(result === 1 ? { msg: '' } : { msg : 'error: ' + err });
+		res.send(result === 1 ? 200 : 400, result === 1 ? { msg: '' } : { msg : 'error: ' + err });
 	});
 });
 
@@ -28,7 +28,7 @@ router.post('/', function(req, res) {
 	};
 
 	req.db.collection('bebida').insert(bebida, function(err, bebida) {
-		res.json(bebida);
+		res.json(200, bebida);
 	});
 });
 
@@ -41,7 +41,7 @@ router.put('/:id', function(req, res) {
 		};
 
 	req.db.collection('bebida').updateById(req.params.id, bebida, function(err, bebida) {
-		res.json(bebida);
+		res.json(200, bebida);
 	});
 });
 

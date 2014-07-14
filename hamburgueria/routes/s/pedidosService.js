@@ -3,19 +3,19 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
 	req.db.collection('pedido').find().toArray(function(err, pedidos) {
-		res.json('pedidos', pedidos);
+		res.json(200, pedidos);
 	});
 });
 
 router.get('/:id', function(req, res) {
 	req.db.collection('pedido').findById(req.params.id, function(err, pedido) {
-		res.json('pedido', pedido);
+		res.json(200, pedido);
 	});
 });
 
 router.delete('/:id', function(req, res) {
 	req.db.collection('pedido').removeById(req.params.id, function(err, result) {
-		res.send(result === 1 ? { msg: '' } : { msg : 'error: ' + err });
+		res.send(result === 1 ? 200 : 400, result === 1 ? { msg: '' } : { msg : 'error: ' + err });
 	});
 });
 
@@ -61,7 +61,7 @@ router.post('/', function(req, res) {
 	pedido.pagamento.total = total + pedido.frete;
 	pedido.pagamento.troco = pedido.pagamento.pago - pedido.pagamento.total;
 	req.db.collection('pedido').insert(pedido, function(err, pedido) {
-		res.json(pedido);
+		res.json(200, pedido);
 	});
 });
 

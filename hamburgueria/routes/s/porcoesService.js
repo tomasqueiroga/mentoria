@@ -3,19 +3,19 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
 	req.db.collection('porcao').find().toArray(function(err, porcoes) {
-		res.json('porcoes', porcoes);
+		res.json(200, porcoes);
 	});
 });
 
 router.get('/:id', function(req, res) {
 	req.db.collection('porcao').findById(req.params.id, function(err, porcao) {
-		res.json('porcao', porcao);
+		res.json(200, porcao);
 	});
 });
 
 router.delete('/:id', function(req, res) {
 	req.db.collection('porcao').removeById(req.params.id, function(err, result) {
-		res.send(result === 1 ? { msg: '' } : { msg : 'error: ' + err });
+		res.send(result === 1 ? 200 : 400, result === 1 ? { msg: '' } : { msg : 'error: ' + err });
 	});
 });
 
@@ -28,7 +28,7 @@ router.post('/', function(req, res) {
 	};
 
 	req.db.collection('porcao').insert(porcao, function(err, porcao) {
-		res.json(porcao);
+		res.json(200, porcao);
 	});
 });
 
@@ -41,7 +41,7 @@ router.put('/:id', function(req, res) {
 	};
 
 	req.db.collection('porcao').updateById(req.params.id, porcao, function(err, porcao) {
-		res.json(porcao);
+		res.json(200, porcao);
 	});
 });
 
