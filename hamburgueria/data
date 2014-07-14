@@ -1,4 +1,63 @@
 use hamburgueria
+
 db.lanche.remove();
 db.lanche.insert({"nome" : "Picanha", "preco" : 12.0, "ingredientes" : "Pão de hamburguer, hamburguer de picanha 200g, queijo prato, alface, tomate, cebola, molho da casa", "imagem" : "http://2.bp.blogspot.com/-UwbAj0FJeRw/UBGSS3_PGlI/AAAAAAAANU4/mEJJuI5n6S0/s1600/BK+Picanha.jpg"});
 db.lanche.insert({"nome" : "Double picanha bacon", "preco" : 17.0, "ingredientes" : "Pão de hamburguer, dois hamburgueres de picanha 200g, bacon em tiras, duas fatias de queijo prato, alface, tomate, cebola roxa, molho da casa", "imagem" : "http://www.americanprime.com.br/resize.php?arquivo=uploads/2607201306253390774139.jpg"});
+db.lanche.insert({"nome" : "Triple picanha bacon", "preco" : 19.0, "ingredientes" : "Pão de hamburguer, três hamburgueres de picanha 110g, bacon em tiras, três fatias de queijo prato, molho da casa", "imagem" : "http://addins.whig.com/blogs/ihavealottowatch/wp-content/uploads/2010/03/stacker.jpg"});
+db.lanche.insert({"nome" : "Ultra picanha", "preco" : 22.0, "ingredientes" : "Pão de hamburguer, dez hamburgueres de picanha 100g, dez fatias de queijo prato", "imagem" : "http://stuffpoint.com/yummy-food/image/235379-yummy-food-huge-burger.jpg"});
+db.lanche.insert({"nome" : "Max chicken", "preco" : 15.0, "ingredientes" : "Pão de hamburguer, hamburguer de frango 200g, bacon em tiras, queijo prato, alface, tomate, maionese, picles, molho da casa", "imagem" : "http://www.grubgrade.com/wp-content/uploads/2009/07/AngryTendercrisp.jpg"});
+db.lanche.insert({"nome" : "Double chicken", "preco" : 15.0, "ingredientes" : "Três pães de hamburguer, dois hamburguer de frango 180g, onion rings, picles, maionese, mostarda, ketchup", "imagem" : "http://www.horeca-messiaen.be/images/photolib/1650_pdl.jpg"});
+db.lanche.insert({"nome" : "Chicken light", "preco" : 9.0, "ingredientes" : "Pão de hamburguer, hamburguer de frango 150g, alface juliane, maionese", "imagem" : "http://pesanmakan.com/images/resto/food/B38-burger-classic-chicken.png"});
+
+db.porcao.remove();
+db.porcao.insert({"nome" : "Batata frita individual", "preco" : 6.0, "imagem" : "http://mccain.com.br/conteudo/uploads/sites/3/2013/10/Extra_Crocante.png"});
+db.porcao.insert({"nome" : "Batata frita", "preco" : 10.0, "imagem" : "http://3.bp.blogspot.com/-6d_tsCGWPj8/Tpb_N8K5CDI/AAAAAAAAEN8/7aOyjvYin_8/s1600/Batata+Frita.jpg"});
+db.porcao.insert({"nome" : "Batata frita extra", "preco" : 14.0, "imagem" : "http://www.frasesparafacebook.info/imagens/batata-frita-365da1.jpg"});
+db.porcao.insert({"nome" : "Batata frita cheddar bacon", "preco" : 14.0, "imagem" : "http://www.bigxpicanha.com.br/Content/Produto/Imagem/Fritas-com-Cheddar-e-Bacon-108.png"});
+db.porcao.insert({"nome" : "Chicken fingers", "preco" : 12.0, "imagem" : "http://img4-3.myrecipes.timeinc.net/i/recipes/ck/11/10/potato-crusted-chicken-fingers-ck-l.jpg"});
+db.porcao.insert({"nome" : "Chicken wings ao molho barbecue", "preco" : 16.0, "imagem" : "http://www.gimmesomeoven.com/wp-content/uploads/2014/01/BBQ-Baked-Chicken-Wings-1.jpg"});
+db.porcao.insert({"nome" : "Três mini cheese burguers", "preco" : 16.0, "imagem" : "http://www.burgerbusiness.com/wp-content/uploads/jrockmini.jpg"});
+
+db.bebida.remove();
+db.bebida.insert({"nome" : "Coca-cola", "tipo" : "Refrigerante", "tamanho" : "300", "preco" : 5.00});
+db.bebida.insert({"nome" : "Coca-cola", "tipo" : "Refrigerante", "tamanho" : "500", "preco" : 8.00});
+db.bebida.insert({"nome" : "Coca-cola", "tipo" : "Refrigerante", "tamanho" : "700", "preco" : 10.00});
+db.bebida.insert({"nome" : "Coca-cola", "tipo" : "Refrigerante lata", "tamanho" : "350", "preco" : 6.00});
+db.bebida.insert({"nome" : "Guaraná Antartica", "tipo" : "Refrigerante", "tamanho" : "300", "preco" : 5.00});
+db.bebida.insert({"nome" : "Guaraná Antartica", "tipo" : "Refrigerante", "tamanho" : "500", "preco" : 8.00});
+db.bebida.insert({"nome" : "Guaraná Antartica", "tipo" : "Refrigerante", "tamanho" : "700", "preco" : 10.00});
+db.bebida.insert({"nome" : "Guaraná Antartica", "tipo" : "Refrigerante lata", "tamanho" : "350", "preco" : 6.00});
+db.bebida.insert({"nome" : "Soda", "tipo" : "Refrigerante", "tamanho" : "300", "preco" : 5.00});
+db.bebida.insert({"nome" : "Soda", "tipo" : "Refrigerante", "tamanho" : "500", "preco" : 8.00});
+db.bebida.insert({"nome" : "Soda", "tipo" : "Refrigerante", "tamanho" : "700", "preco" : 10.00});
+db.bebida.insert({"nome" : "Soda", "tipo" : "Refrigerante lata", "tamanho" : "350", "preco" : 6.00});
+db.bebida.insert({"nome" : "Fanta laranja", "tipo" : "Refrigerante", "tamanho" : "300", "preco" : 5.00});
+db.bebida.insert({"nome" : "Fanta laranja", "tipo" : "Refrigerante", "tamanho" : "500", "preco" : 8.00});
+db.bebida.insert({"nome" : "Fanta laranja", "tipo" : "Refrigerante", "tamanho" : "700", "preco" : 10.00});
+db.bebida.insert({"nome" : "Fanta laranja", "tipo" : "Refrigerante lata", "tamanho" : "350", "preco" : 6.00});
+
+db.bebida.insert({"nome" : "Laranja", "tipo" : "Suco natural", "tamanho" : "300", "preco" : 5.00});
+db.bebida.insert({"nome" : "Laranja", "tipo" : "Suco natural", "tamanho" : "500", "preco" : 8.00});
+db.bebida.insert({"nome" : "Laranja", "tipo" : "Suco natural", "tamanho" : "700", "preco" : 10.00});
+db.bebida.insert({"nome" : "Morango", "tipo" : "Suco natural", "tamanho" : "300", "preco" : 5.00});
+db.bebida.insert({"nome" : "Morango", "tipo" : "Suco natural", "tamanho" : "500", "preco" : 8.00});
+db.bebida.insert({"nome" : "Morango", "tipo" : "Suco natural", "tamanho" : "700", "preco" : 10.00});
+db.bebida.insert({"nome" : "Limão", "tipo" : "Suco natural", "tamanho" : "300", "preco" : 5.00});
+db.bebida.insert({"nome" : "Limão", "tipo" : "Suco natural", "tamanho" : "500", "preco" : 8.00});
+db.bebida.insert({"nome" : "Limão", "tipo" : "Suco natural", "tamanho" : "700", "preco" : 10.00});
+
+db.bebida.insert({"nome" : "Ovomaltine", "tipo" : "Milk shake", "tamanho" : "300", "preco" : 6.00});
+db.bebida.insert({"nome" : "Ovomaltine", "tipo" : "Milk shake", "tamanho" : "500", "preco" : 9.00});
+db.bebida.insert({"nome" : "Ovomaltine", "tipo" : "Milk shake", "tamanho" : "700", "preco" : 11.00});
+db.bebida.insert({"nome" : "Chocolate", "tipo" : "Milk shake", "tamanho" : "300", "preco" : 6.00});
+db.bebida.insert({"nome" : "Chocolate", "tipo" : "Milk shake", "tamanho" : "500", "preco" : 9.00});
+db.bebida.insert({"nome" : "Chocolate", "tipo" : "Milk shake", "tamanho" : "700", "preco" : 11.00});
+db.bebida.insert({"nome" : "Creme", "tipo" : "Milk shake", "tamanho" : "300", "preco" : 6.00});
+db.bebida.insert({"nome" : "Creme", "tipo" : "Milk shake", "tamanho" : "500", "preco" : 9.00});
+db.bebida.insert({"nome" : "Creme", "tipo" : "Milk shake", "tamanho" : "700", "preco" : 11.00});
+db.bebida.insert({"nome" : "Morango", "tipo" : "Milk shake", "tamanho" : "300", "preco" : 6.00});
+db.bebida.insert({"nome" : "Morango", "tipo" : "Milk shake", "tamanho" : "500", "preco" : 9.00});
+db.bebida.insert({"nome" : "Morango", "tipo" : "Milk shake", "tamanho" : "700", "preco" : 11.00});
+
+db.pedido.remove();
+db.pedido.insert({"lanches" : [{"nome" : "Picanha", "preco" : 12.0, "ingredientes" : "Pão de hamburguer, hamburguer de picanha 200g, queijo prato, alface, tomate, cebola, molho da casa", "imagem" : "http://2.bp.blogspot.com/-UwbAj0FJeRw/UBGSS3_PGlI/AAAAAAAANU4/mEJJuI5n6S0/s1600/BK+Picanha.jpg"}], "bebidas" : [{"nome" : "Fanta laranja", "tipo" : "Refrigerante", "tamanho" : "700", "preco" : 10.00}], "porcoes" : [{"nome" : "Batata frita individual", "preco" : 6.0, "imagem" : "http://mccain.com.br/conteudo/uploads/sites/3/2013/10/Extra_Crocante.png"}], "status" : "preparando", "frete" : 2.50, "total" : 28.00, "cliente" : "Tomas", "endereco" : "Rua dos hamburgueres sem número", "pagamento" : { "total" : 30.5, "pago" : 50.00, "troco" : 19.50, "tipo" : "dinheiro"}});

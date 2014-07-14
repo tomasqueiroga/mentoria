@@ -7,9 +7,12 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var lanches = require('./routes/lanches');
-var lanchesService = require('./routes/lanchesService');
 var porcoes = require('./routes/porcoes');
-var porcoesService = require('./routes/porcoesService');
+
+var lanchesService = require('./routes/s/lanchesService');
+var porcoesService = require('./routes/s/porcoesService');
+var bebidasService = require('./routes/s/bebidasService');
+var pedidosService = require('./routes/s/pedidosService');
 var mongo = require('mongoskin');
 var db = mongo.db('mongodb://localhost:27017/hamburgueria', {native_parser:true});
 
@@ -31,9 +34,11 @@ app.use(function(req, res, next) {
 });
 app.use('/', routes);
 app.use('/lanches', lanches);
-app.use('/s/lanches', lanchesService);
 app.use('/porcoes', porcoes);
+app.use('/s/lanches', lanchesService);
 app.use('/s/porcoes', porcoesService);
+app.use('/s/bebidas', bebidasService);
+app.use('/s/pedidos', pedidosService);
 
 // / catch 404 and forward to error handler
 app.use(function(req, res, next) {

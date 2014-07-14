@@ -20,27 +20,27 @@ router.delete('/:id', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	var lanche = {
+	var porcao = {
 		nome : req.body.nome,
 		preco : req.body.preco,
 		imagem : req.body.imagem,
 		ingredientes : req.body.ingredientes
 	};
 
-	req.db.collection('porcao').insert(lanche, function(err, porcao) {
+	req.db.collection('porcao').insert(porcao, function(err, porcao) {
 		res.json(porcao);
 	});
 });
 
 router.put('/:id', function(req, res) {
-	var lanche = {
+	var porcao = {
 		nome : req.body.nome,
 		preco : req.body.preco,
 		imagem : req.body.imagem,
 		ingredientes : req.body.ingredientes
 	};
 
-	req.db.collection('porcao').updateById(req.params.id, lanche, function(err, porcao) {
+	req.db.collection('porcao').updateById(req.params.id, porcao, function(err, porcao) {
 		res.json(porcao);
 	});
 });
